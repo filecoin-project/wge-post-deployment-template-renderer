@@ -42,5 +42,5 @@ jobs:
         with:
           context: ./docker                          # Folder where the Dockerfile resides, use `/` if in root path
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.IMAGE_NAME }}:latest, ${{ env.IMAGE_NAME }}:${{ steps.version-bump.outputs.newTag }}
+          tags: ${{ env.IMAGE_NAME }}:latest, ${{ env.IMAGE_NAME }}:${{ steps.yaml-data.outputs.data }}
           # Pushed the image with `latest` tag and the new semantic version obtained from the version-bump step
