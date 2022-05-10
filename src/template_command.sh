@@ -4,7 +4,7 @@ echo "# you can edit it freely and regenerate (it will not be overwritten)"
 inspect_args
 set -a
 
-git clone -b ${GITOPS_REPO_BRANCH} https://github.com/${GITOPS_REPO_OWNER}/${GITOPS_REPO_NAME} /tmp/${GITOPS_REPO_NAME}
+git clone -b ${GITOPS_REPO_BRANCH} https://${GIT_USERNAME}:${GITHUB_TOKEN}@github.com/${GITOPS_REPO_OWNER}/${GITOPS_REPO_NAME} /tmp/${GITOPS_REPO_NAME}
 cd /tmp/${GITOPS_REPO_NAME}
 if [ ! -f "${TEMPLATE_PATH}" ]; then
     echo "Template does not exist"
@@ -17,7 +17,6 @@ if [[ ! -z "${ENV_HELPER_SCRIPT}" ]]; then
     chmod +x /tmp/env_helper.sh
     sh /tmp/env_helper.sh
 fi
-
 if [[ ! -z "${ENV_CONFIG_FILE_PATH}" ]]; then
     source $ENV_CONFIG_FILE_PATH
 fi
