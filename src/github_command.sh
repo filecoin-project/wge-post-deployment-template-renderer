@@ -1,7 +1,7 @@
 inspect_args
 set -a
 
-gh clone ${GITOPS_REPO_OWNER}/${GITOPS_REPO_NAME} /tmp/${GITOPS_REPO_NAME}
+gh repo clone ${GITOPS_REPO_OWNER}/${GITOPS_REPO_NAME} /tmp/${GITOPS_REPO_NAME}
 cd /tmp/${GITOPS_REPO_NAME}
 if [ ! -f "${TEMPLATE_PATH}" ]; then
     echo "Template does not exist"
