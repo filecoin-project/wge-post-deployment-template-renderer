@@ -1,7 +1,7 @@
 name: Docker                                           # Name of the workflow
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
   packages: write
 
