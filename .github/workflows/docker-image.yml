@@ -35,7 +35,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ${{ env.REGISTRY }}              # Uses the env defined above
-          username: ${{ secrets.ORG }}   # GitHub Secret added to the repository
+          username: ${{ github.actor }}   # GitHub Secret added to the repository
           password: ${{ secrets.GITHUB_TOKEN }}   # GitHub Secret added to the repository
 
       - name: Build and push Docker image            # Builds and pushes the image to the conatiner registry
@@ -43,7 +43,7 @@ jobs:
         with:
           context: .                          # Folder where the Dockerfile resides, use `/` if in root path
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ secrets.ORG }}/${{ env.IMAGE_NAME }}:latest,${{ secrets.ORG }}/${{ env.IMAGE_NAME }}:${{ steps.yaml-data.outputs.data }}
+          tags: ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}:latest,ghcr.io/${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ steps.yaml-data.outputs.data }}
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
           # Pushed the image with `latest` tag and the new semantic version obtained from the version-bump step
