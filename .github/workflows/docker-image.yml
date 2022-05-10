@@ -1,5 +1,11 @@
 name: Docker                                           # Name of the workflow
 
+permissions:
+  contents: read
+  pull-requests: write
+  packages: write
+
+
 on:
   push:
     branches: [ main ]                                 # Workflow to run only when changes are made to `main` branch
