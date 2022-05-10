@@ -15,4 +15,4 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
     mv kubectl /usr/local/bin/kubectl
 
 COPY --from=0 /home/cli ./
-ENTRYPOINT ["./cli", "github"]
+ENTRYPOINT ["./cli", "github"]  
