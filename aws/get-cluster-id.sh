@@ -16,4 +16,4 @@ fi
 echo Found URL of $URL
 CLUSTER_ID=$(echo $URL | sed 's/.*https:\/\///; s/\..*//')
 echo cluster id is $CLUSTER_ID
-echo EKS_CLUSTER_ID=$CLUSTER_ID > /tmp/env_config
+echo "EKS_CLUSTER_ID=$CLUSTER_ID" > /tmp/env_config
