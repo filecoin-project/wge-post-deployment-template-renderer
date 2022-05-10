@@ -9,4 +9,4 @@ RUN apk update && apk upgrade && apk add git
 RUN apk update && apk upgrade && apk add curl
 RUN apk update && apk upgrade && apk add bash
 COPY --from=0 /home/cli ./
-ENTRYPOINT ["./cli"]  
+ENTRYPOINT ["./cli", "template"]  
