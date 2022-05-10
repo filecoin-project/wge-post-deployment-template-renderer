@@ -1,10 +1,10 @@
 name: cli
 help: Post Deployment Template Render
-version: 0.0.4
+version: 0.0.5
 
 
 commands:
-- name: template
+- name: github
   short: t
   help: template file
   group: template
@@ -32,6 +32,3 @@ commands:
   - name: CLUSTER_NAME
     required: true
     help: CLUSTER NAME
-  - name: GIT_USERNAME
-    required: true
-    help: GIT USERNAE

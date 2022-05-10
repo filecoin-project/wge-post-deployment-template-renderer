@@ -8,5 +8,6 @@ WORKDIR /root/
 RUN apk update && apk upgrade && apk add git
 RUN apk update && apk upgrade && apk add curl
 RUN apk update && apk upgrade && apk add bash
+RUN apk update && apk upgrade && apk add github-cli
 COPY --from=0 /home/cli ./
-ENTRYPOINT ["./cli", "template"]  
+ENTRYPOINT ["./cli", "github"]  
