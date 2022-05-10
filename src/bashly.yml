@@ -1,6 +1,6 @@
 name: cli
 help: Post Deployment Template Render
-version: 0.0.9
+version: 0.0.10
 
 
 commands:
@@ -32,3 +32,11 @@ commands:
   - name: CLUSTER_NAME
     required: true
     help: CLUSTER NAME
+  - name: GIT_BOT_EMAIL
+    required: true
+    default: sti-bot@protocol.ai
+    help: Git Bot email
+  - name: GIT_BOT_NAME
+    required: true
+    default: sti-bot
+    help: Git Bot name

@@ -2,6 +2,8 @@ inspect_args
 set -a
 
 git clone -b ${GITOPS_REPO_BRANCH} https://${GITHUB_TOKEN}@github.com/${GITOPS_REPO_OWNER}/${GITOPS_REPO_NAME} /tmp/${GITOPS_REPO_NAME}
+git config --global user.email ${GIT_BOT_EMAIL}                                                                  │
+git config --global user.name ${GIT_BOT_NAME}
 
 cd /tmp/${GITOPS_REPO_NAME}
 if [ ! -f "${TEMPLATE_PATH}" ]; then
