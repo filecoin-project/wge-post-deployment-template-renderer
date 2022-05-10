@@ -1,0 +1,51 @@
+name: cli
+help: Post Deployment Template Render
+version: 0.1.0
+
+environment_variables:
+# - name: api_key
+#   help: Set your API key
+
+commands:
+- name: github
+  short: t
+  help: template file
+  group: template
+  # This option belongs to the `verify` command and will appear in its help
+  # message.
+  environment_variables:
+  - name: GITOPS_REPO_NAME 
+    required: true
+    help: GitHub repository name
+  - name: TEMPLATE_PATH 
+    required: true
+    help: path to Weaveworks template
+  - name: GITOPS_REPO_OWNER
+    required: true
+    help: GitHub repository owner
+  - name: ENV_HELPER_SCRIPT
+    required: true
+    help: A URL to a script that will set environment variables
+  - name: GITOPS_REPO_BRANCH 
+    required: true
+    help: Gitops repo branch
+  # flags:
+  # - long: --force
+  #   short: -f
+  #   help: Overwrite existing files
+
+  # examples:
+  # - cli download example.com
+  # - cli download example.com ./output -f
+
+  # environment_variables:
+  # - name: default_target_location
+  #   help: Set the default location to download to
+
+# export GITOPS_REPO_NAME=gitops-root
+# export GITOPS_REPO_OWNER=filecoin-project
+# export TEMPLATE_PATH=clusters/wge-nonprod-capi-configs/test-01.yaml
+# export GITOPS_REPO_BRANCH=var-updates-and-eks-cluster-id
+# export ENV_HELPER_SCRIPT=https://test.com
+# export EKS_CLUSTER_ID=blah
+# "{{ .Env.EKS_CLUSTER_ID }}"
