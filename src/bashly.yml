@@ -2,9 +2,6 @@ name: cli
 help: Post Deployment Template Render
 version: 0.1.0
 
-environment_variables:
-# - name: api_key
-#   help: Set your API key
 
 commands:
 - name: template
@@ -35,25 +32,3 @@ commands:
   - name: CLUSTER_NAME
     required: true
     help: CLUSTER NAME
-  # flags:
-  # - long: --force
-  #   short: -f
-  #   help: Overwrite existing files
-
-  # examples:
-  # - cli download example.com
-  # - cli download example.com ./output -f
-
-  # environment_variables:
-  # - name: default_target_location
-  #   help: Set the default location to download to
-
-# export GITOPS_REPO_NAME=gitops-root
-# export GITOPS_REPO_OWNER=filecoin-project
-# export TEMPLATE_PATH=clusters/wge-nonprod-capi-configs/test-01.yaml
-# export GITOPS_REPO_BRANCH=nonprod
-# export CLUSTER_NAME=test-01
-# export ENV_HELPER_SCRIPT=https://raw.githubusercontent.com/steve-fraser/wge-post-deployment-template-renderer/main/aws/get-cluster-id.sh
-# export EKS_CLUSTER_ID=blah
-# export ENV_CONFIG_FILE_PATH=/tmp/env_config
-# "{{ .Env.EKS_CLUSTER_ID }}"
