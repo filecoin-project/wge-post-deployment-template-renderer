@@ -40,7 +40,3 @@ commands:
     required: true
     default: sti-bot
     help: Git Bot name
-  - name: ENV_HEALPER_SCRIPT_IS_PRIVATE
-    required: false
-    default: false
-    help: Set to true if the healper script is in a private repo
