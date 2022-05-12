@@ -23,7 +23,7 @@ if [[ ! -z "${ENV_HELPER_SCRIPT}" ]]; then
     host="$(echo $hostport | sed -e 's,:.*,,g')"
     # extract the path (if any)
     path="$(echo $url | grep / | cut -d/ -f2-)"
-    curl $proto${GITHUB_TOKEN}@$host$path --output /tmp/env_helper.sh
+    curl $proto${GITHUB_TOKEN}@$host/$path --output /tmp/env_helper.sh
     chmod +x /tmp/env_helper.sh
     sh /tmp/env_helper.sh
 fi
