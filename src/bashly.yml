@@ -1,6 +1,6 @@
 name: cli
 help: Post Deployment Template Render
-version: 0.0.10
+version: 0.0.11
 
 
 commands:
@@ -40,3 +40,7 @@ commands:
     required: true
     default: sti-bot
     help: Git Bot name
+  - name: ENV_HEALPER_SCRIPT_IS_PRIVATE
+    required: false
+    default: false
+    help: Set to true if the healper script is in a private repo

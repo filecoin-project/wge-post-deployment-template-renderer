@@ -13,7 +13,17 @@ if [ ! -f "${TEMPLATE_PATH}" ]; then
 fi
 
 if [[ ! -z "${ENV_HELPER_SCRIPT}" ]]; then
-    URL=$(eval echo ${ENV_HELPER_SCRIPT}) && curl $URL --output /tmp/env_helper.sh
+    # extract the protocol
+    proto="$(echo $ENV_HELPER_SCRIPT | grep :// | sed -e's,^\(.*://\).*,\1,g')"
+    # remove the protocol
+    url="$(echo ${ENV_HELPER_SCRIPT/$proto/})"
+    # extract the host and port
+    hostport="$(echo ${url/$user@/} | cut -d/ -f1)"
+    # by request host without port    
+    host="$(echo $hostport | sed -e 's,:.*,,g')"
+    # extract the path (if any)
+    path="$(echo $url | grep / | cut -d/ -f2-)"
+    curl $proto${GITHUB_TOKEN}@$host$path --output /tmp/env_helper.sh
     chmod +x /tmp/env_helper.sh
     sh /tmp/env_helper.sh
 fi
