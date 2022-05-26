@@ -6,8 +6,8 @@ if [ ! -z "$DEBUG" ] ; then
     set -x
 fi
 
-kubectl wait -n sentinel --for=condition=ready clusters.cluster.x-k8s.io ${CLUSTER_NAME}
-URL=$(kubectl get clusters.cluster.x-k8s.io -n sentinel ${CLUSTER_NAME} -o=jsonpath='{.spec.controlPlaneEndpoint.host}')
+kubectl wait --for=condition=ready clusters.cluster.x-k8s.io ${CLUSTER_NAME}
+URL=$(kubectl get clusters.cluster.x-k8s.io ${CLUSTER_NAME} -o=jsonpath='{.spec.controlPlaneEndpoint.host}')
 if [ -z "$URL" ]
 then
       echo Could not find URL
