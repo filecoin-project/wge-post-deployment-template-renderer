@@ -21,7 +21,8 @@ if [[ ! -z "${ENV_CONFIG_FILE_PATH}" ]]; then
     source $ENV_CONFIG_FILE_PATH
 fi
 
-gomplate --file ${TEMPLATE_PATH} --out ${TEMPLATE_PATH}.tmp
+# gomplate --file ${TEMPLATE_PATH} --out ${TEMPLATE_PATH}.tmp
+cat ${TEMPLATE_PATH} | envsubst > ${TEMPLATE_PATH}.tmp
 mv ${TEMPLATE_PATH}.tmp ${TEMPLATE_PATH}
 
 git add ${TEMPLATE_PATH}
