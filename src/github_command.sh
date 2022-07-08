@@ -36,7 +36,7 @@ cat ${TEMPLATE_PATH}  | envsubst > ${TEMPLATE_PATH}.tmp
 mv ${TEMPLATE_PATH}.tmp ${TEMPLATE_PATH}
 
 git add ${TEMPLATE_PATH}
-git commit -m "Updating variables"
-git push
+git commit -m "Updating variables" || true
+git push || true
 
 rm -rf /tmp/${GITOPS_REPO_NAME}
